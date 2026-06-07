@@ -4,7 +4,7 @@ pipeline {
 
     environment {
 
-        IMAGE_NAME = "madhu809/python-app"
+        IMAGE_NAME = "nmadhu809/python-app"
         IMAGE_TAG = "${BUILD_NUMBER}"
     }
 
@@ -15,7 +15,7 @@ pipeline {
             steps {
 
                 git branch: 'main',
-                url: 'https://github.com/username/python-app.git'
+                url: 'https://github.com/Madhu809/app.git'
             }
         }
 
@@ -35,7 +35,7 @@ pipeline {
 
                 withCredentials([
                     usernamePassword(
-                        credentialsId: 'dockerhub-creds',
+                        credentialsId: '731d0415-d22e-492d-9dff-6d606dc7c80b',
                         usernameVariable: 'DOCKER_USER',
                         passwordVariable: 'DOCKER_PASS'
                     )
@@ -59,8 +59,8 @@ pipeline {
                 dir('manifest-repo') {
 
                     git branch: 'main',
-                    credentialsId: 'github-creds',
-                    url: 'https://github.com/username/python-k8s-manifests.git'
+                    credentialsId: 'git-cred',
+                    url: 'https://github.com/Madhu809/k8s-demo-app-.git'
 
                     sh """
                     sed -i 's|image: .*|image: $IMAGE_NAME:$IMAGE_TAG|' deployment.yaml
