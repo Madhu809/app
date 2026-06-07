@@ -71,7 +71,7 @@ pipeline {
                     git add deployment.yaml
                     git commit -m "Image updated to $IMAGE_TAG"
 
-                    git push
+                    git push --set-upstream origin main
                     """
                 }
             }
