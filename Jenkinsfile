@@ -65,8 +65,8 @@ pipeline {
                     sh """
                     sed -i 's|image: .*|image: $IMAGE_NAME:$IMAGE_TAG|' deployment.yaml
 
-                    git config user.email "jenkins@example.com"
-                    git config user.name "jenkins"
+                    git config user.email "nmadhu809@gmail.com"
+                    git config user.name "Madhu809"
 
                     git add deployment.yaml
                     git commit -m "Image updated to $IMAGE_TAG"
